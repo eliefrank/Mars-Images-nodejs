@@ -1,0 +1,42 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <div class="border border-info p-3 rounded">
+                    <div class="bg-info p-2 text-dark bg-opacity-25 rounded mb-3 text-center">
+                        <h1>Mars images browser</h1>
+                        <h4>Log In</h4>
+                    </div>
+                    <% if (signedUp) { %>
+                        <div class="text-center text-info mb-3">
+                            <h4>You are registered!</h4>
+                        </div>
+                    <% } %>
+                    <form action="/signIn" method="POST">
+                        <div class="form-group">
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" minlength="8" placeholder="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-info mb-3">Sign in</button>
+                        </div>
+                    </form>
+                    <% if (mistake) { %>
+                        <div class="text-danger">
+                            <p>Incorrect email address or password</p>
+                        </div>
+                    <% } %>
+                    <p>New around here? <a href="/register">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('includes/end.ejs') %>

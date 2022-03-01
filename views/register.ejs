@@ -1,0 +1,45 @@
+<%- include('includes/head.ejs') %>
+<script src="/javascripts/registerFunc.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <div class="border border-info p-3 rounded">
+                    <div class="bg-info p-2 text-dark bg-opacity-25 rounded mb-3 text-center">
+                        <h1>Mars images browser</h1>
+                        <h4>Sign Up</h4>
+                    </div>
+                    <form action="/register/password" method="POST" id="registerForm">
+                        <div class="form-group">
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required
+                                       pattern="([A-Za-z]+[ ]?)+" title="Letters only with a single space between the words">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required
+                                       pattern="([A-Za-z]+[ ]?)+" title="Letters only with a single space between the words">
+                            </div>
+                            <button type="submit" class="btn btn-info mb-3">Next</button>
+                        </div>
+                    </form>
+
+                    <div class="text-danger <%= existingEmailError %>" id="emailAlreadyExists">
+                        <p>This email is already in use, please choose another one</p>
+                    </div>
+
+                    <p>Do you already have an account? <a href="/login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('includes/end.ejs') %>
